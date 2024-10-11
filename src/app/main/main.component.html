@@ -1,5 +1,4 @@
 <main>
-    <!-- Notification de suppression -->
     <div *ngIf="notification" class="notification">
       {{ notification }}
     </div>
@@ -13,19 +12,16 @@
       </div>
     </section>
   
-    <!-- Modal avec Carrousel et Suppression -->
     <div *ngIf="selectedProduct" class="modal">
       <div class="modal-content">
         <span class="close" (click)="hideModal()">&times;</span>
         
-        <!-- Carrousel des images -->
         <div class="carousel">
           <button (click)="previousImage()">&#10094;</button>
           <img [src]="selectedProduct.images[currentImageIndex]" alt="{{ selectedProduct.name }}" class="carousel-image">
           <button (click)="nextImage()">&#10095;</button>
         </div>
         
-        <!-- Affichage de toutes les images en mode miniature -->
         <div class="thumbnail-gallery">
           <img *ngFor="let img of selectedProduct.images; let i = index" 
                [src]="img" 
@@ -35,7 +31,6 @@
                class="thumbnail">
         </div>
         <p>desc</p>
-        <!-- Bouton de suppression -->
         <button class="delete-button" (click)="deleteProduct()">Supprimer le produit</button>
       </div>
     </div>

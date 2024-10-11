@@ -15,7 +15,7 @@ export class MainComponent {
   products: Product[] = [];
   selectedProduct: Product | null = null;
   currentImageIndex: number = 0;
-  notification: string | null = null; // Pour afficher la notification de suppression
+  notification: string | null = null;
 
   constructor() {
     this.initializeProducts();
@@ -74,10 +74,9 @@ export class MainComponent {
   deleteProduct(): void {
     if (this.selectedProduct) {
       this.products = this.products.filter(product => product !== this.selectedProduct);
-      this.notification = `${this.selectedProduct.name} a été supprimé.`; // Message de notification
+      this.notification = `${this.selectedProduct.name} a été supprimé.`; 
       this.hideModal();
 
-      // Efface la notification après un délai de 3 secondes
       setTimeout(() => {
         this.notification = null;
       }, 3000);

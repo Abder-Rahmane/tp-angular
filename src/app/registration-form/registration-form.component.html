@@ -21,7 +21,6 @@
   <button type="submit" [disabled]="registrationForm.invalid">S'inscrire</button>
 </form>
 
-<!-- Affichage des informations en JSON -->
 <div *ngIf="submittedData" class="submitted-data">
   <h3>Données saisies :</h3>
   <pre>{{ submittedData | json }}</pre>
