@@ -1,0 +1,19 @@
+/* Style de base pour la disposition */
+.content {
+    display: flex;
+    justify-content: space-between; /* Assure l'espacement entre les éléments */
+  }
+  
+  /* Taille de la section principale */
+  app-main {
+    flex: 3; /* Prend plus de place pour le contenu principal */
+    padding: 10px;
+  }
+  
+  /* Taille et position de l'aside */
+  app-aside {
+    flex: 1; /* Prend moins de place pour l'aside */
+    padding: 10px;
+    background-color: #f4f4f4;
+  }
+  
