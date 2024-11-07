@@ -1,0 +1,27 @@
+<h2>Inscription</h2>
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+  <label for="name">Nom:</label>
+  <input id="name" formControlName="name" type="text">
+  <div *ngIf="registrationForm.get('name')?.invalid && registrationForm.get('name')?.touched">
+    Le nom est requis.
+  </div>
+
+  <label for="email">Email:</label>
+  <input id="email" formControlName="email" type="email">
+  <div *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched">
+    Un email valide est requis.
+  </div>
+
+  <label for="password">Mot de passe:</label>
+  <input id="password" formControlName="password" type="password">
+  <div *ngIf="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched">
+    Le mot de passe est requis.
+  </div>
+
+  <button type="submit" [disabled]="registrationForm.invalid">S'inscrire</button>
+</form>
+
+<div *ngIf="submittedData" class="submitted-data">
+  <h3>Données saisies :</h3>
+  <pre>{{ submittedData | json }}</pre>
+</div>

@@ -1,0 +1,38 @@
+<main>
+    <div *ngIf="notification" class="notification">
+      {{ notification }}
+    </div>
+  
+    <section class="products">
+      <div *ngFor="let product of products" class="product-card" (click)="showModal(product)">
+        <img [src]="product.images[0]" alt="{{ product.name }}" class="product-image">
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.price }} €</p>
+        <p>desc</p>
+      </div>
+    </section>
+  
+    <div *ngIf="selectedProduct" class="modal">
+      <div class="modal-content">
+        <span class="close" (click)="hideModal()">&times;</span>
+        
+        <div class="carousel">
+          <button (click)="previousImage()">&#10094;</button>
+          <img [src]="selectedProduct.images[currentImageIndex]" alt="{{ selectedProduct.name }}" class="carousel-image">
+          <button (click)="nextImage()">&#10095;</button>
+        </div>
+        
+        <div class="thumbnail-gallery">
+          <img *ngFor="let img of selectedProduct.images; let i = index" 
+               [src]="img" 
+               [class.active]="i === currentImageIndex" 
+               (click)="currentImageIndex = i" 
+               alt="Thumbnail image" 
+               class="thumbnail">
+        </div>
+        <p>desc</p>
+        <button class="delete-button" (click)="deleteProduct()">Supprimer le produit</button>
+      </div>
+    </div>
+  </main>
+  

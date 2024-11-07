@@ -1,0 +1,16 @@
+.content {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  app-main {
+    flex: 3; 
+    padding: 10px;
+  }
+  
+  app-aside {
+    flex: 1; 
+    padding: 10px;
+    background-color: #f4f4f4;
+  }
+  
